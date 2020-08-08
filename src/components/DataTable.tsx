@@ -2,9 +2,15 @@ import React from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
 import {styles} from '../styles/index';
 export default class DataTable extends React.Component<any, any> {
+
   constructor(props: any) {
     super(props);
     this.state = {};
+  }
+
+
+  componentDidMount(): void {
+    console.log('data', this.props)
   }
 
   render() {

@@ -46,9 +46,12 @@ class HomeScreen extends Component<any, any> {
             current={current}
             onClick={(n: number) => racePager(n)}
           />
-          {races.map((result: any, i: number) => (
-            <DataTable result={result} key={i} onDriver={this.getDriver} />
-          ))}
+          {
+            // тут идет итерации, потому что иногда данные приходят несколько разделя по блокам. Если вы обратите внимание на title DataTable
+            races.map((result: any, i: number) => (
+              <DataTable result={result} key={i} onDriver={this.getDriver} />
+            ))
+          }
         </ScrollView>
       </View>
     );
