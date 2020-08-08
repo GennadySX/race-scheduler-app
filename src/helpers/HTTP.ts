@@ -11,13 +11,17 @@ const request = (controller: string, method: string) => {
       }),
     };
 
-    // console.log('url ', controller);
+    //console.log('url ', controller);
 
     fetch(controller, options)
-      .then((res: Response) => res.json())
-      .then((res: any) => (res.code !== 0 ? resolve(res) : reject(res)))
+      .then((res: Response) => {
+        return res.json();
+      })
+      .then((res: any) => {
+        resolve(res);
+      })
       .catch((error: Error) => {
-        console.log('err', error);
+        reject(error);
         //error ? setTimeout(request(controller, method), 1000) : reject(error);
       });
   });

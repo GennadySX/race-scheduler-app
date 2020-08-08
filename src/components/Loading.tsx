@@ -1,12 +1,12 @@
 import React from 'react';
-import {ActivityIndicator, Dimensions, StyleSheet, Text, View} from 'react-native';
-const window = Dimensions.get('window')
+import {ActivityIndicator, Text, View} from 'react-native';
+import {styles} from "../styles";
 
 export default function Loading(props: any) {
   return (
-    <View style={[s.container, s.horizontal]}>
+    <View style={[styles.container, styles.horizontal, styles.background]}>
       <View style={{alignSelf: 'center'}}>
-        <ActivityIndicator size="large" color={s.spinner.color} />
+        <ActivityIndicator size="large" color={styles.spinner.color} />
         <Text style={{color: '#fafafa', paddingTop: 10, fontSize: 17}}>
           Подождите ...
         </Text>
@@ -14,22 +14,3 @@ export default function Loading(props: any) {
     </View>
   );
 }
-
-const s = StyleSheet.create({
-  container: {
-    flex: 1,
-    position: 'absolute',
-    backgroundColor: 'rgb(219,113,35)',
-    justifyContent: 'center',
-    width: window.width,
-    height: window.height,
-  },
-  horizontal: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    padding: 10,
-  },
-  spinner: {
-    color: '#f4ffef',
-  },
-});

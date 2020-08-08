@@ -1,23 +1,25 @@
-import {StyleSheet} from 'react-native';
+import {Dimensions, StyleSheet} from 'react-native';
+const window = Dimensions.get('window')
 
 export const styles = StyleSheet.create({
-  headerBlock: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
   background: {
     backgroundColor: '#2546b4',
     padding: 10,
+    justifyContent: 'center',
+    position: 'absolute',
   },
-  headerBackBtn: {},
-  headerBack: {
-    fontSize: 18,
-    color: 'white',
+  container: {
+    flex: 1,
+    width: window.width,
+    height: window.height,
   },
-  container: {},
-  headerTitle: {
-    fontSize: 18,
-    color: '#fafafa',
+  horizontal: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    padding: 10,
+  },
+  spinner: {
+    color: '#f4ffef',
   },
   section: {
     padding: 15,
@@ -49,5 +51,35 @@ export const styles = StyleSheet.create({
     fontSize: 18,
     textAlign: 'center',
     width: '100%',
+  },
+  pg_section: {
+    padding: 15,
+    paddingBottom: 0,
+  },
+  pg_header: {
+    justifyContent: 'center',
+    flexDirection: 'row',
+    alignItems: 'flex-end',
+  },
+  pg_pageTouchable: {
+    justifyContent: 'center',
+    padding: 7,
+    width: 35,
+    height: 35,
+    borderColor: '#617eff',
+    borderWidth: 2,
+    borderRadius: 50,
+    backgroundColor: '#617eff',
+    marginRight: 15,
+  },
+  pg_headerTouchableText: {
+    textAlign: 'center',
+    fontWeight: 'bold',
+    color: 'white',
+  },
+  pg_arr: {
+    fontSize: 20,
+    position: 'relative',
+    bottom: 5,
   },
 });

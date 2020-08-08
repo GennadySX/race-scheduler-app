@@ -1,22 +1,22 @@
 import React from 'react';
 import {View} from 'react-native';
 import {styles} from '../../styles';
-import Header from '../../components/Header';
-import {connect} from 'react-redux';
+import {connect, useSelector} from 'react-redux';
 import {DriverTable} from '../../components/DriverTable';
+import Loading from '../../components/Loading';
 
-function DriverScreen(props: any) {
-  console.log('props state ', props.driver);
-  return (
+function DriverScreen() {
+  //Это хуки редакса, а хуки реакта не использовал в проекте так как не видел нужды когда создал классы.
+  const driver = useSelector((state: any) => state.driver.driver);
+  const driverErr = useSelector((state: any) => state.driver.err);
+
+  return driverErr ? (
+    <Loading />
+  ) : (
     <View style={[styles.container]}>
-      <Header title={'Гонщик'} goBack={props.navigation.goBack} />
-      <DriverTable driver={props.driver} />
+      <DriverTable {...driver} />
     </View>
   );
 }
 
-export default connect((state: any) => {
-  return {
-    driver: state.driver.driver,
-  };
-})(DriverScreen);
+export default DriverScreen;

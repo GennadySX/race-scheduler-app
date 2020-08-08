@@ -4,9 +4,7 @@ import {styles} from '../styles/index';
 export default class DataTable extends React.Component<any, any> {
   constructor(props: any) {
     super(props);
-    this.state = {
-      isLoading: true,
-    };
+    this.state = {};
   }
 
   render() {
